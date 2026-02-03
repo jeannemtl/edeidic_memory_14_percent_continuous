@@ -1,0 +1,4 @@
+__pycache__/
+*.jsonl
+eidetic_decoder_v1/
+gen.log

@@ -1,3 +1,5 @@
+from FDM_multiplexer import FDMMultiplexer
+from imec_encoder import ImperfectiMEC
 """
 Complete Eidetic Encoder: Contexts → FDM → iMEC → Stegotext
 """
@@ -7,7 +9,7 @@ class EideticEncoder:
         self,
         num_channels: int = 8,
         epsilon: float = 0.15,
-        bits_per_channel: int = 256,  # 32 bytes per channel
+        bits_per_channel: int = 64,  # 32 bytes per channel
         device: str = "cuda"
     ):
         self.num_channels = num_channels
@@ -18,9 +20,9 @@ class EideticEncoder:
     
     def encode(
         self,
-        contexts: List[str],
+        contexts: list,
         cover_prompt: str = "In today's news"
-    ) -> Tuple[str, dict]:
+    ) -> tuple:
         """
         Encode multiple contexts into single stegotext
         
@@ -74,7 +76,7 @@ class EideticEncoder:
         self,
         stegotext: str,
         metadata: dict
-    ) -> List[str]:
+    ) -> list:
         """Traditional decode (for verification only)"""
         # iMEC decode
         bits = self.imec.decode_bits(
@@ -125,4 +127,4 @@ def test_eidetic_encoder():
     
     return stegotext, metadata, contexts
 
-test_eidetic_encoder()
+#test_eidetic_encoder()

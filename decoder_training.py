@@ -5,7 +5,8 @@ Train GPT-2 to decode eidetic channels from stegotext
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
-from transformers import GPT2LMHeadModel, GPT2Tokenizer, AdamW
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from torch.optim import AdamW
 from tqdm import tqdm
 import json
 
@@ -178,7 +179,7 @@ class EideticDecoder:
         self,
         stegotext: str,
         num_channels: int = 8
-    ) -> List[str]:
+    ) -> list:
         """Decode all channels from stegotext"""
         return [self.decode(stegotext, ch) for ch in range(num_channels)]
 
@@ -198,4 +199,5 @@ def train_eidetic_decoder():
     
     return decoder
 
-decoder = train_eidetic_decoder()
+if __name__ == "__main__":
+    decoder = train_eidetic_decoder()

@@ -5,6 +5,7 @@ Generate training dataset: (stegotext, channel_id, context) tuples
 import json
 import random
 from tqdm import tqdm
+from full_encoder_pipeline import EideticEncoder
 
 # Context templates
 CONTEXT_TEMPLATES = {
@@ -136,4 +137,4 @@ def generate_training_data(
     return samples
 
 # Generate data
-samples = generate_training_data(num_samples=100000, num_channels=8, epsilon=0.15)
+samples = generate_training_data(num_samples=5000, num_channels=8, epsilon=0.15)
