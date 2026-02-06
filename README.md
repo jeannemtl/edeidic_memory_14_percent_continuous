@@ -1,4 +1,5 @@
 # Eidetic Memory Implementation
+Encoder that hides context in generated text → Decoder that extracts it
 
 ## Setup
 
