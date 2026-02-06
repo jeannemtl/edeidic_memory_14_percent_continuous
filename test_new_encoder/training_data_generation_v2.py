@@ -60,7 +60,7 @@ def random_context(category=None):
 
 
 def generate_training_data(
-    num_stegotexts=1000,
+    num_stegotexts=5000,
     num_channels=8,
     tokens_per_channel=32,
     bias_strength=3.0,
