@@ -196,7 +196,7 @@ def generate_training_data(
 if __name__ == "__main__":
     # Generate data with checkpoint support
     samples = generate_training_data(
-        num_samples=4000, 
+        num_samples=1000, 
         num_channels=64, 
         epsilon=0.05,
         checkpoint_interval=100,  # Save every 100 samples
