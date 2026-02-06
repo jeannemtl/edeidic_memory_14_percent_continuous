@@ -17,7 +17,7 @@ model.resize_token_embeddings(len(tokenizer))
 
 model.cuda().eval()
 
-samples = [json.loads(l) for l in open('eidetic_training_data_test.jsonl')]
+samples = [json.loads(l) for l in open('fdm_training_data_test.jsonl')]
 
 correct = 0
 

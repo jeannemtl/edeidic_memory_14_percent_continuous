@@ -189,8 +189,8 @@ def train_eidetic_decoder():
     decoder = EideticDecoder(model_name="gpt2-medium")
     
     decoder.train(
-        train_path="eidetic_training_data_train.jsonl",
-        val_path="eidetic_training_data_val.jsonl",
+        train_path="fdm_training_data_train.jsonl",
+        val_path="fdm_training_data_val.jsonl",
         epochs=10,
         batch_size=8,
         lr=5e-5,
