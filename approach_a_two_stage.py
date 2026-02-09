@@ -273,8 +273,8 @@ def evaluate_two_stage():
     fdm_model.eval()
     
     # Load explicit memory model
-    explicit_tokenizer = GPT2Tokenizer.from_pretrained('eidetic_explicit_v1')
-    explicit_model = GPT2LMHeadModel.from_pretrained('eidetic_explicit_v1')
+    explicit_tokenizer = GPT2Tokenizer.from_pretrained('./eidetic_explicit_v1')
+    explicit_model = GPT2LMHeadModel.from_pretrained('./eidetic_explicit_v1')
     explicit_model.to(device)
     explicit_model.eval()
     
