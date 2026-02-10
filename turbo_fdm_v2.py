@@ -202,7 +202,7 @@ def generate_explicit_memory_string(memory: dict) -> str:
     return "|".join(parts)
 
 
-def generate_turbo_dataset(num_samples=2000, output_path="turbo_fdm_v2_training.jsonl"):
+def generate_turbo_dataset(num_samples=5000, output_path="turbo_fdm_v2_training.jsonl"):
     """Generate training data with turbo-code FDM."""
     
     encoder = TurboFDMEncoder(bias_strength=10.0)
@@ -249,4 +249,4 @@ def generate_turbo_dataset(num_samples=2000, output_path="turbo_fdm_v2_training.
 
 
 if __name__ == "__main__":
-    generate_turbo_dataset(num_samples=2000)
+    generate_turbo_dataset(num_samples=5000)
