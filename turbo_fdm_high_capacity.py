@@ -161,7 +161,7 @@ class HighCapacityTurboEncoder:
         return self.tokenizer.decode(generated_tokens)
 
 
-def generate_high_capacity_dataset(num_samples=5000, output_path="turbo_high_capacity_training.jsonl"):
+def generate_high_capacity_dataset(num_samples=20000, output_path="turbo_high_capacity_training.jsonl"):
     """Generate high-capacity training data."""
     
     encoder = HighCapacityTurboEncoder(bias_strength=15.0)
@@ -200,4 +200,4 @@ def generate_high_capacity_dataset(num_samples=5000, output_path="turbo_high_cap
 
 
 if __name__ == "__main__":
-    generate_high_capacity_dataset(num_samples=5000)
+    generate_high_capacity_dataset(num_samples=20000)
