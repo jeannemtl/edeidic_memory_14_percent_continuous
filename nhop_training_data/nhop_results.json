@@ -1,0 +1,27 @@
+{
+  "1": {
+    "total": 88,
+    "decision_accuracy": 100.0,
+    "extra_accuracy": 100.0
+  },
+  "2": {
+    "total": 114,
+    "decision_accuracy": 100.0,
+    "extra_accuracy": 99.53399122807018
+  },
+  "3": {
+    "total": 100,
+    "decision_accuracy": 93.0,
+    "extra_accuracy": 98.78125
+  },
+  "4": {
+    "total": 100,
+    "decision_accuracy": 99.0,
+    "extra_accuracy": 96.1875
+  },
+  "5": {
+    "total": 98,
+    "decision_accuracy": 94.89795918367348,
+    "extra_accuracy": 92.82525510204081
+  }
+}
