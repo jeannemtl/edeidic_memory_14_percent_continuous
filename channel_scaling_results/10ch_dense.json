@@ -1,0 +1,15 @@
+{
+  "config": "10ch_dense",
+  "num_channels": 10,
+  "carrier_spacing": "dense",
+  "action_acc": 0.948,
+  "rule_acc": 0.76,
+  "meta_acc": 0.942,
+  "fact_acc": 0.944,
+  "extra_acc": 0.945,
+  "mean_per_channel_acc": 0.9450000000000001,
+  "per_channel": {
+    "8": 0.926,
+    "9": 0.964
+  }
+}

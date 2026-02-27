@@ -1,0 +1,15 @@
+{
+  "config": "10ch_spread",
+  "num_channels": 10,
+  "carrier_spacing": "spread",
+  "action_acc": 0.922,
+  "rule_acc": 0.604,
+  "meta_acc": 0.934,
+  "fact_acc": 0.876,
+  "extra_acc": 0.967,
+  "mean_per_channel_acc": 0.967,
+  "per_channel": {
+    "8": 0.962,
+    "9": 0.972
+  }
+}
