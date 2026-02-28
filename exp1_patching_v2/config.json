@@ -1,0 +1,7 @@
+{
+  "model_path": "./fdm_40ch_turbo_v3_model_final",
+  "test_data": "./fdm_40ch_turbo_v3_stage4_test.jsonl",
+  "num_samples": 50,
+  "block_size": 32,
+  "output_dir": "./exp1_patching_v2"
+}
