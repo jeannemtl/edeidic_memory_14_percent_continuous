@@ -1,0 +1,157 @@
+{
+  "counterfactual": {
+    "followed_signal": 136,
+    "followed_prior": 21,
+    "other": 143,
+    "total": 300,
+    "per_channel": {
+      "7": {
+        "signal": 25,
+        "prior": 5,
+        "other": 24,
+        "total": 54
+      },
+      "6": {
+        "signal": 20,
+        "prior": 0,
+        "other": 27,
+        "total": 47
+      },
+      "1": {
+        "signal": 28,
+        "prior": 0,
+        "other": 30,
+        "total": 58
+      },
+      "2": {
+        "signal": 18,
+        "prior": 0,
+        "other": 35,
+        "total": 53
+      },
+      "0": {
+        "signal": 26,
+        "prior": 5,
+        "other": 13,
+        "total": 44
+      },
+      "3": {
+        "signal": 19,
+        "prior": 11,
+        "other": 14,
+        "total": 44
+      }
+    }
+  },
+  "memorization": {
+    "per_channel": {
+      "0": {
+        "mr": 0.28,
+        "sig_acc": 0.51,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "1": {
+        "mr": 0.12,
+        "sig_acc": 0.46,
+        "verdict": "? AMBIGUOUS"
+      },
+      "2": {
+        "mr": 0.043333333333333335,
+        "sig_acc": 0.33666666666666667,
+        "verdict": "? AMBIGUOUS"
+      },
+      "3": {
+        "mr": 0.59,
+        "sig_acc": 0.55,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "4": {
+        "mr": 0.9,
+        "sig_acc": 0.8333333333333334,
+        "verdict": "? AMBIGUOUS"
+      },
+      "5": {
+        "mr": 0.38,
+        "sig_acc": 0.43333333333333335,
+        "verdict": "? AMBIGUOUS"
+      },
+      "6": {
+        "mr": 0.11333333333333333,
+        "sig_acc": 0.4166666666666667,
+        "verdict": "? AMBIGUOUS"
+      },
+      "7": {
+        "mr": 0.0,
+        "sig_acc": 0.5266666666666666,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "8": {
+        "mr": 0.22,
+        "sig_acc": 1.0,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "9": {
+        "mr": 0.20333333333333334,
+        "sig_acc": 1.0,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "10": {
+        "mr": 0.41333333333333333,
+        "sig_acc": 1.0,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "11": {
+        "mr": 0.47333333333333333,
+        "sig_acc": 1.0,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "12": {
+        "mr": 0.2633333333333333,
+        "sig_acc": 1.0,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "13": {
+        "mr": 0.28,
+        "sig_acc": 1.0,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "14": {
+        "mr": 0.33666666666666667,
+        "sig_acc": 0.9966666666666667,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "15": {
+        "mr": 0.32,
+        "sig_acc": 0.9966666666666667,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "16": {
+        "mr": 0.6933333333333334,
+        "sig_acc": 1.0,
+        "verdict": "? AMBIGUOUS"
+      },
+      "17": {
+        "mr": 0.3566666666666667,
+        "sig_acc": 1.0,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "18": {
+        "mr": 0.2866666666666667,
+        "sig_acc": 1.0,
+        "verdict": "\u2713 READS SIGNAL"
+      },
+      "19": {
+        "mr": 0.31666666666666665,
+        "sig_acc": 0.9966666666666667,
+        "verdict": "\u2713 READS SIGNAL"
+      }
+    },
+    "overall_mr": 0.36666666666666664,
+    "overall_sig": 0.8990833333333333
+  },
+  "substitution": {
+    "changed": 63,
+    "correct_new": 15,
+    "total": 100
+  }
+}
