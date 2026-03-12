@@ -1,0 +1,12 @@
+{
+  "baseline": 0.692,
+  "all_experiments": [
+    {
+      "exp": 1,
+      "score": 0.684,
+      "kept": false,
+      "change": "lr_stage0=0.0001"
+    }
+  ],
+  "running_best": []
+}
