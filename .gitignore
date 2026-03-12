@@ -2,3 +2,9 @@ __pycache__/
 *.jsonl
 eidetic_decoder_v1/
 gen.log
+channel_scaling_models/
+checkpoints_*/
+fdm_40ch_turbo_v3_*/
+plaintext_40ch_model_*/
+plaintext_model_*/
+plaintext_nhop_model_*/

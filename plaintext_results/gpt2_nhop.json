@@ -1,0 +1,27 @@
+{
+  "1": {
+    "decision_acc": 0.0,
+    "extra_acc": 0.94671875,
+    "n": 200
+  },
+  "2": {
+    "decision_acc": 0.0,
+    "extra_acc": 0.9365625,
+    "n": 200
+  },
+  "3": {
+    "decision_acc": 0.0,
+    "extra_acc": 0.94109375,
+    "n": 200
+  },
+  "4": {
+    "decision_acc": 0.0,
+    "extra_acc": 0.95171875,
+    "n": 200
+  },
+  "5": {
+    "decision_acc": 0.0,
+    "extra_acc": 0.94265625,
+    "n": 200
+  }
+}
