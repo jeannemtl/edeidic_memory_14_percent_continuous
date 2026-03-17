@@ -671,6 +671,8 @@ def evaluate(model_path=None, stage_idx=None):
     print(f"Evaluating on {len(test_samples)} samples (stage {si})...\n")
     
     action_correct = 0
+    ch_correct = {}
+    ch_total = {}
     rule_correct = 0
     meta_correct = 0
     fact_correct = 0
@@ -724,14 +726,17 @@ def evaluate(model_path=None, stage_idx=None):
             fact_ok = facts['SECRET'] in response or facts['LOCATION'] in response
         if fact_ok: fact_correct += 1
         
-        # Extra channels
+        # Extra channels — track per-channel
         memory = s['memory']
         for ch in range(8, NUM_CHANNELS):
             name = MEMORY_SCHEMAS[ch][0]
             expected_val = memory[str(ch)]
             extra_total += 1
+            ch_total[ch] = ch_total.get(ch, 0) + 1
+            ch_correct[ch] = ch_correct.get(ch, 0)
             if expected_val in response:
                 extra_correct += 1
+                ch_correct[ch] += 1
         
         total += 1
         
@@ -748,6 +753,14 @@ def evaluate(model_path=None, stage_idx=None):
     print(f"  Meta:    {100*meta_correct/total:.1f}%")
     print(f"  Fact:    {100*fact_correct/total:.1f}%")
     print(f"  Extra:   {100*extra_correct/max(extra_total,1):.1f}%")
+    print("")
+    print("Per-Channel Extra Accuracy (ch8-39):")
+    for ch in range(8, NUM_CHANNELS):
+        t = ch_total.get(ch, 0)
+        c = ch_correct.get(ch, 0)
+        pct = 100 * c / t if t else 0
+        flag = " <<<" if pct < 99 else ""
+        print(f"  ch{ch:2d} ({MEMORY_SCHEMAS[ch][0]:<12}): {pct:.1f}%{flag}")
 
 
 # ============================================================
