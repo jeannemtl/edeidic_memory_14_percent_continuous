@@ -769,6 +769,13 @@ def evaluate(model_path=None, stage_idx=None):
 # ============================================================
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--tokens', type=int, default=256)
+    args, _ = parser.parse_known_args()
+    if args.tokens != 256:
+        for s in STAGES:
+            s['num_tokens'] = args.tokens
+        print(f'Token budget override: {args.tokens} per encoder = {args.tokens*2} total')
     if len(sys.argv) < 2:
         print(f"Eidetic Memory FDM — {MODEL_ID}")
         print(f"Usage:")
