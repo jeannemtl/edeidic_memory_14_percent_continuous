@@ -313,15 +313,16 @@ class TurboFDMSignalEncoder:
                     2 * np.pi * self.carrier_freqs[ch] * t[start:end]
                 )
         
-        # Encoder 1: natural order
-        sig_min, sig_max = composite.min(), composite.max()
+        # Encoder 1: natural order — fixed normalization for cross-length transfer
+        sig_min = -self.num_channels * self.a_high
+        sig_max =  self.num_channels * self.a_high
         sig_range = sig_max - sig_min + 1e-10
         norm1 = (composite - sig_min) / sig_range
         q1 = np.floor(norm1 * (self.num_levels - 1) + 0.5).astype(int)
         q1 = np.clip(q1, 0, self.num_levels - 1)
         tokens1 = [int(self.token_map[q]) for q in q1]
         
-        # Encoder 2: S-random interleaved
+        # Encoder 2: S-random interleaved — same fixed normalization
         interleaved = composite[self.interleaver]
         norm2 = (interleaved - sig_min) / sig_range
         q2 = np.floor(norm2 * (self.num_levels - 1) + 0.5).astype(int)
