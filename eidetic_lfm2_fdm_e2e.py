@@ -54,7 +54,7 @@ VOCAB_SIZE = 65536  # LFM2.5 vocabulary size
 DTYPE = torch.bfloat16
 BATCH_SIZE = 2  # Smaller batch for 1.2B model on A40
 GRAD_ACCUM_STEPS = 2  # Effective batch size = 2 * 2 = 4 (matches GPT-2)
-MAX_LENGTH = 1024
+MAX_LENGTH = 2048
 OUTPUT_PREFIX = "fdm_40ch_turbo_v3_lfm2"
 CHECKPOINT_DIR = "checkpoints_fdm_40ch_turbo_v3_lfm2"
 FINAL_MODEL_DIR = "fdm_40ch_turbo_v3_lfm2_model_final"
