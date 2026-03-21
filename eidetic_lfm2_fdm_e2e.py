@@ -695,6 +695,8 @@ def evaluate(model_path=None, stage_idx=None):
     fact_correct = 0
     extra_correct = 0
     extra_total = 0
+    ch_correct = {ch: 0 for ch in range(8, NUM_CHANNELS)}
+    ch_total   = {ch: 0 for ch in range(8, NUM_CHANNELS)}
     total = 0
     
     for i, s in enumerate(tqdm(test_samples, desc=f"Evaluating [{MODEL_SHORT}]")):
@@ -744,8 +746,10 @@ def evaluate(model_path=None, stage_idx=None):
             name = MEMORY_SCHEMAS[ch][0]
             expected_val = memory[str(ch)]
             extra_total += 1
+            ch_total[ch] += 1
             if expected_val in response:
                 extra_correct += 1
+                ch_correct[ch] += 1
         
         total += 1
         
@@ -762,6 +766,12 @@ def evaluate(model_path=None, stage_idx=None):
     print(f"  Meta:    {100*meta_correct/total:.1f}%")
     print(f"  Fact:    {100*fact_correct/total:.1f}%")
     print(f"  Extra:   {100*extra_correct/max(extra_total,1):.1f}%")
+    print("")
+    print("Per-Channel Extra Accuracy (ch8-39):")
+    for ch in range(8, NUM_CHANNELS):
+        t = ch_total[ch]; c = ch_correct[ch]
+        pct = 100*c/t if t else 0
+        print(f"  ch{ch:2d} ({MEMORY_SCHEMAS[ch][0]:<12}): {pct:.1f}%")
 
 
 # ============================================================
