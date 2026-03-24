@@ -186,7 +186,7 @@ class ScaledChannelEncoder:
     Token mapping draws from the target model's vocabulary.
     """
 
-    def __init__(self, vocab_size, tokenizer, num_channels=40,
+    def __init__(self, vocab_size, tokenizer, num_channels=40, use_srandom=True,
                  carrier_spacing="dense",
                  num_tokens_per_encoder=256, sample_rate=100.0,
                  a_high=1.0, a_low=0.25, num_levels=64, seed=42):
@@ -212,6 +212,7 @@ class ScaledChannelEncoder:
             raise ValueError(f"Unknown spacing: {carrier_spacing}")
 
         # S-random interleaver
+        self.use_srandom = use_srandom
         S = int(np.sqrt(num_tokens_per_encoder / 2))
         self.interleaver = self._generate_s_random_interleaver(
             num_tokens_per_encoder, S)
@@ -278,7 +279,10 @@ class ScaledChannelEncoder:
                       0, self.num_levels - 1)
         tokens1 = [int(self.token_map[q]) for q in q1]
 
-        interleaved = composite[self.interleaver]
+        if self.use_srandom:
+            interleaved = composite[self.interleaver]
+        else:
+            interleaved = composite
         norm2 = (interleaved - sig_min) / sig_range
         q2 = np.clip(np.floor(norm2 * (self.num_levels - 1) + 0.5).astype(int),
                       0, self.num_levels - 1)
@@ -406,6 +410,7 @@ def generate_data(model_name, config_name, base_dir="channel_scaling_data"):
         tokenizer=tokenizer,
         num_channels=num_channels,
         carrier_spacing=cfg["carrier_spacing"],
+        use_srandom=cfg.get("use_srandom", True),
         a_high=1.0, a_low=0.25, num_levels=64, seed=42,
     )
 
@@ -598,6 +603,7 @@ def train(model_name, config_name, base_dir="channel_scaling_data",
             tokenizer=tokenizer,
             num_channels=num_channels,
             carrier_spacing=cfg["carrier_spacing"],
+            use_srandom=cfg.get("use_srandom", True),
             a_high=a_high, a_low=a_low, num_levels=64, seed=42,
         )
 
@@ -699,6 +705,7 @@ def evaluate(model_name, config_name, model_dir="channel_scaling_models",
         tokenizer=tokenizer,
         num_channels=num_channels,
         carrier_spacing=cfg["carrier_spacing"],
+        use_srandom=cfg.get("use_srandom", True),
         a_high=1.0, a_low=0.25, num_levels=64, seed=42,
     )
 
@@ -874,3 +881,26 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Single-encoding configs for S-random ablation
+CONFIGS["20ch_dense_single"] = {
+    "num_channels": 20,
+    "carrier_spacing": "dense",
+    "train_samples": 20000,
+    "use_srandom": False,
+    "description": "20 channels dense, single encoding (no S-random)",
+}
+CONFIGS["8ch_dense_single"] = {
+    "num_channels": 8,
+    "carrier_spacing": "dense",
+    "train_samples": 20000,
+    "use_srandom": False,
+    "description": "8 channels dense, single encoding (no S-random)",
+}
+CONFIGS["20ch_dense_srandom"] = {
+    "num_channels": 20,
+    "carrier_spacing": "dense",
+    "train_samples": 20000,
+    "use_srandom": True,
+    "description": "20 channels dense, S-random interleaved",
+}
