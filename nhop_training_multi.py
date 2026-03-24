@@ -65,7 +65,7 @@ MODEL_CONFIGS = {
         "grad_accum": 1,
         "trust_remote_code": True,
         "model_class": "auto",
-        "base_model_dir": "fdm_40ch_turbo_v3_qwen3_model_final",
+        "base_model_dir": "fdm_40ch_turbo_v3_qwen3_512tok_model",
         "nhop_data_dir": "nhop_training_data_qwen3",
         "nhop_model_dir": "nhop_model_qwen3_final",
     },
