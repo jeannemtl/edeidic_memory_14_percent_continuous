@@ -879,10 +879,7 @@ def main():
                           f"{100*r['mean_per_channel_acc']:>9.2f}%")
 
 
-if __name__ == "__main__":
-    main()
 
-# Single-encoding configs for S-random ablation
 CONFIGS["20ch_dense_single"] = {
     "num_channels": 20,
     "carrier_spacing": "dense",
@@ -904,3 +901,7 @@ CONFIGS["20ch_dense_srandom"] = {
     "use_srandom": True,
     "description": "20 channels dense, S-random interleaved",
 }
+if __name__ == "__main__":
+    main()
+
+# Single-encoding configs for S-random ablation
